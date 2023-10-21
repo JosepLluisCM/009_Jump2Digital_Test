@@ -1,11 +1,22 @@
-import './App.css';
+import styled from 'styled-components';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import CardList from './components/CardList';
 
+const AppStyled = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid red;
+`;
 function App() {
   return (
-    <div className="App">
-      HOLAAAAA
-
-    </div>
+    <AppStyled>
+      <Header />
+      <SearchBar />
+      <CardList />  
+    </AppStyled>
   );
 }
 
