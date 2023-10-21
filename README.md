@@ -1,4 +1,4 @@
-##That is the test project for the Hackathon in JUMP2DIGITAL EVENT in Barcelona (3rd edition).  
+## Test Project for the Hackathon in JUMP2DIGITAL EVENT in Barcelona (3rd edition).  
 
 For this I havo to replicate a design of single page site and use a public API.  
 
@@ -10,7 +10,7 @@ https://rickandmortyapi.com/documentation/
 
 _____________________________________________________________________________________
 
-###For building this I'm using:  
+### For building this I'm using:  
   -VSCode as Editor.  
   -React.js (project created with "Create-React-App").  
   -HTML, CSS, JS.  
@@ -19,7 +19,7 @@ ________________________________________________________________________________
   -Github for uploading the source code.  
   -Github Pages for hosting the page online.  
 
-###Dependancies installed in folder:  
+### Dependancies installed in folder:  
   -"gh-pages": "^6.0.0",  
   -"styled-components": "^6.1.0",  
 
@@ -27,7 +27,7 @@ ________________________________________________________________________________
 _____________________________________________________________________________________
 
 
-##Instructions to set up the program:
+### Instructions to set up the program:
 
 
 
