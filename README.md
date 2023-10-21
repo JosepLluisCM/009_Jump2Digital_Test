@@ -18,10 +18,12 @@ ________________________________________________________________________________
   -Git for version control.  
   -Github for uploading the source code.  
   -Github Pages for hosting the page online.  
+  -RickandMorty Javascript Client for the moment.  
 
 ### Dependancies installed in folder:  
   -"gh-pages": "^6.0.0",  
   -"styled-components": "^6.1.0",  
+  -"rickmortyapi": "^2.3.0",  
 
 
 _____________________________________________________________________________________

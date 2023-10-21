@@ -1,4 +1,17 @@
 import styled from "styled-components";
+import { getCharacter } from 'rickmortyapi';
+
+
+const promise = getCharacter(1);
+console.log(promise);
+
+promise.then((response) => {
+  console.log(`Received response: ${response.data.name}`);
+  const rick = response.data.name;
+});
+
+
+
 
 const CardStyled = styled.div`
   border: 2px solid blue;
@@ -9,7 +22,7 @@ const CardStyled = styled.div`
 const Card = () => {
   return (
     <CardStyled>
-      Card
+      fasosfnbaoi
     </CardStyled>
   );
 }
