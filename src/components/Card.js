@@ -1,14 +1,23 @@
 import styled from "styled-components";
-import { getCharacter } from 'rickmortyapi';
+import { getCharacter, getCharacters, getEndpoints } from 'rickmortyapi';
 
 
-const promise = getCharacter(1);
+/* const promise = getCharacter(1);
 console.log(promise);
 
 promise.then((response) => {
   console.log(`Received response: ${response.data.name}`);
   const rick = response.data.name;
 });
+ */
+
+const rick = await getCharacters()
+console.log(rick);
+
+const ricks = await getCharacter(1)
+console.log(ricks);
+
+console.log(getEndpoints());
 
 
 

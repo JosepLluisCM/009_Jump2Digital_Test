@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Card from "./Card";
 
-const CardListStyled = styled.section`
+const CardListStyled = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

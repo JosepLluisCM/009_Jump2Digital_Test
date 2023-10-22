@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CardList from './components/CardList';
+import Pages from './components/Pages';
 
 const AppStyled = styled.section`
   display: flex;
@@ -15,6 +16,7 @@ function App() {
     <AppStyled>
       <Header />
       <SearchBar />
+      <Pages />
       <CardList />  
     </AppStyled>
   );
