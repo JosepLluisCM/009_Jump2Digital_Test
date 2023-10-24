@@ -9,6 +9,10 @@ const CardListStyled = styled.div`
   margin-top: 50px;
 `;
 
+
+
+
+
 const CardList = () => {
   return (
     <CardListStyled>
