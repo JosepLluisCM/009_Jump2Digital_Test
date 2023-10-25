@@ -27,7 +27,7 @@ function App() {
   function previousPage() {
     if (page > 1) {
       setPage(page - 1);
-      console.log(charList);
+      /* console.log(charList); */
     }
   }
   

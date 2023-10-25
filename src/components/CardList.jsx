@@ -13,16 +13,10 @@ const CardListStyled = styled.div`
 
 
 
-const CardList = () => {
+const CardList = (props) => {
   return (
-    <CardListStyled>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+    <CardListStyled >
+      {props.list.map((char) => <Card {...char} key={char.id}/>)}
     </CardListStyled>
   );
 }
