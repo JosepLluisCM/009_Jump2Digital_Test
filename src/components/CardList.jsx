@@ -11,11 +11,11 @@ const CardListStyled = styled.div`
   border: 1px solid red;
 `;
 
-/* Character List passed as prop, conditionally rendered and key prop added for React, matches id from the object fetched from the api */
+/* Character List passed as prop, conditionally rendered and key prop added for React, matches id from the object fetched from the api multiplicated by the page number, to make uniquew ids for all characters */
 const CardList = (props) => {
   return (
     <CardListStyled >
-      {props.list.map((char) => <Card {...char} key={char.id}/>)}
+      {props.list.map((char) => <Card {...char} key={char.id * props.currentPage}/>)}
     </CardListStyled>
   );
 }

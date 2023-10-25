@@ -19,6 +19,16 @@ const AppStyled = styled.section`
 `;
 
 
+window.onscroll = function() {
+  const totalPageHeight = document.body.scrollHeight; 
+  const scrollPoint = window.scrollY + window.innerHeight;
+  if(scrollPoint >= totalPageHeight)
+  {
+      console.log("at the bottom");
+  }
+}
+
+
 
 function App() {
   /* We set the states needed for the app, at the moment the page of Characters that fetches from the API */
@@ -48,7 +58,7 @@ function App() {
     <AppStyled>
       <Header />
       <SearchBar />
-      <CardList list={charList}/>
+      <CardList list={charList} currentPage={page}/>
       <Pages onShowChars={showMore} currentPage={page}/>  
     </AppStyled>
   );

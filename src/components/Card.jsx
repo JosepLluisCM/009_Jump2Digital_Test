@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { ReactComponent as Skull } from "../assets/skull-crossbones-solid.svg";
+import { ReactComponent as Interrogation } from "../assets/interrogation-soid.svg";
 
 /* Style the component here, Styled Components object replaces React Component name*/
 const CardStyled = styled.div`
@@ -30,6 +32,8 @@ const Card = (props) => {
   return (
     <CardStyled key={props.id} status={props.status}>
       <img src={props.image} alt="avatar"/>
+      {props.status==="Dead" && <Skull />}
+      {props.status==="unknown" && <Interrogation />}
       <h1>{props.name}</h1>
       <p><b>Status:</b> {props.status}</p>
       <p><b>Species:</b> {props.species}</p>
