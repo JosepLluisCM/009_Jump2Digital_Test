@@ -2,15 +2,25 @@ import styled from "styled-components";
 
 /* Style the component here, Styled Components object replaces React Component name*/
 const CardStyled = styled.div`
-  border: 1px solid green;
+  background-color: #9ad6a4;
+  border-radius: 1rem;
   width: 200px;
-  height: 300px;
+  height: 270px;
   text-align: center;
   img {
     height: 100px;
     width: 100px;
     border-radius: 50px;
     margin-top: 20px;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: ${function(props) {
+      if (props.status === "Alive") return "lime";
+      if (props.status === "Dead") return "red";
+      else return "gray";
+    } };
+    /* border: 5px solid #23a2bd; */
   }
 `;
 
@@ -18,7 +28,7 @@ const CardStyled = styled.div`
 const Card = (props) => { 
 
   return (
-    <CardStyled key={props.id}>
+    <CardStyled key={props.id} status={props.status}>
       <img src={props.image} alt="avatar"/>
       <h1>{props.name}</h1>
       <p><b>Status:</b> {props.status}</p>
