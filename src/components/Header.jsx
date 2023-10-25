@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 
+/* Style the component here, Styled Components object replaces React Component name*/
 const HeaderStyled = styled.header`
   border: 1px solid red;
   img {

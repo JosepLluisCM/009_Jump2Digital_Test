@@ -1,6 +1,6 @@
 import styled from "styled-components";
-/* import { useState } from 'react'; */
 
+/* Style component here, Styled Components object replaces React Component name*/
 const PagesStyled = styled.div`
   margin: 20px;
   border: 1px solid red;
@@ -9,19 +9,12 @@ const PagesStyled = styled.div`
     }
 `;
 
+
 const Pages = (props) => {
-  
-
-
-
 
   return (
     <PagesStyled>
-      
-      <button onClick={props.onPrev}>Previous page</button>
-      <p>{props.currentPage}</p>
-      <button onClick={props.onNext}>Next Page</button>
-      
+      <button onClick={props.onShowChars}>Show me more!</button>
     </PagesStyled>
   );
 }

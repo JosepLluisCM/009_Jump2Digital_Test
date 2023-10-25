@@ -1,22 +1,17 @@
 import styled from "styled-components";
 import Card from "./Card";
 
+/* Style the component here, Styled Components object replaces React Component name*/
 const CardListStyled = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
   justify-content: space-between;
-  grid-gap: 50px;
-
- 
-
+  grid-gap: 1rem;
   border: 1px solid red;
 `;
 
-
-
-
-
+/* Character List passed as prop, conditionally rendered and key prop added for React, matches id from the object fetched from the api */
 const CardList = (props) => {
   return (
     <CardListStyled >

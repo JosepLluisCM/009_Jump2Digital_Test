@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-
+/* Style the component here, Styled Components object replaces React Component name*/
 const CardStyled = styled.div`
   border: 1px solid green;
   width: 200px;
   height: 300px;
   text-align: center;
-  /* margin: auto; */
-
   img {
     height: 100px;
     width: 100px;
@@ -16,10 +14,8 @@ const CardStyled = styled.div`
   }
 `;
 
-const Card = (props) => {
-  /* console.log(props.name); */
-  
-
+/* In this component all info fetched about the Character is passed through props, and used to render the info in each Card */
+const Card = (props) => { 
 
   return (
     <CardStyled key={props.id}>
