@@ -51,8 +51,9 @@ function App() {
     <AppStyled>
       <Header />
       <SearchBar />
-      <Pages onPrev={previousPage} onNext={nextPage} currentPage={page}/>
-      <CardList list={charList}/>  
+      
+      <CardList list={charList}/>
+      <Pages onPrev={previousPage} onNext={nextPage} currentPage={page}/>  
     </AppStyled>
   );
 }
