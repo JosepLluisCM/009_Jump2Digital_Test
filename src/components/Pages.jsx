@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const PagesStyled = styled.div`
   margin: 20px;
+  border: 1px solid red;
     p {
       display: inline-block;
     }

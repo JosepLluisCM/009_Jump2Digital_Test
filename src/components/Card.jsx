@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 
 const CardStyled = styled.div`
-  border: 2px solid blue;
-  /* width: 200px;
-  height: 200px; */
+  border: 1px solid green;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  /* margin: auto; */
 
   img {
     height: 100px;
     width: 100px;
+    border-radius: 50px;
+    margin-top: 20px;
   }
 `;
 

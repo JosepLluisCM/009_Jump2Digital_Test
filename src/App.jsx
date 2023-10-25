@@ -10,7 +10,7 @@ const AppStyled = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px solid red;
+  padding: 0 5rem 0 5rem;
 `;
 
 
@@ -37,7 +37,10 @@ function App() {
     async function fetchChars() {
       const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
       const resData = await response.json();
-      setCharList(resData.results);
+
+      const newArr = charList.concat(resData.results);
+
+      setCharList(newArr);
       /* console.log(charList); */
     }
 

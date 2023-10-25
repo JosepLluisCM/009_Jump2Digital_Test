@@ -2,11 +2,15 @@ import styled from "styled-components";
 import Card from "./Card";
 
 const CardListStyled = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: space-between;
+  grid-gap: 50px;
+
+ 
+
+  border: 1px solid red;
 `;
 
 
