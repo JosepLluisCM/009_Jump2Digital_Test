@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 /* Style component here, Styled Components object replaces React Component name*/
-const PagesStyled = styled.div`
+const ShowMoreStyled = styled.div`
   margin: 20px;
   border: 1px solid red;
     p {
@@ -10,13 +10,13 @@ const PagesStyled = styled.div`
 `;
 
 
-const Pages = (props) => {
+const ShowMore = (props) => {
 
   return (
-    <PagesStyled>
-      <button onClick={props.onShowChars}>Show me more!</button>
-    </PagesStyled>
+    <ShowMoreStyled>
+      {props.onShowClick && <button onClick={props.onShowChars}>Show me more!</button>}
+    </ShowMoreStyled>
   );
 }
 
-export default Pages;
+export default ShowMore;

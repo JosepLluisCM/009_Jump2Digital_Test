@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CardList from './components/CardList';
-import Pages from './components/Pages';
+import ShowMore from './components/ShowMore';
 
 
 /* Style the App component here, Styled Components object replaces React Component name*/
@@ -19,24 +19,24 @@ const AppStyled = styled.section`
 `;
 
 
-window.onscroll = function() {
-  const totalPageHeight = document.body.scrollHeight; 
-  const scrollPoint = window.scrollY + window.innerHeight;
-  if(scrollPoint >= totalPageHeight)
-  {
-      console.log("at the bottom");
-  }
-}
-
-
-
 function App() {
   /* We set the states needed for the app, at the moment the page of Characters that fetches from the API */
   const [page, setPage] = useState(1);
-  /* We update the page to Fetch by the Api later */
+  const [showMoreCond, setShowMoreCond] = useState(true);
+  /* We Show more characters on the First Click and THEN update the showMore state to hide the button */
   function showMore() {
     setPage(page + 1);
-    console.log(charList);
+    setShowMoreCond(false);
+    /* console.log(charList); */
+  }
+  /* And then we show more characters on scroll bottom only if setShowMore is false, (the button has been clicked once)*/
+  window.onscroll = function() {
+    const totalPageHeight = document.body.scrollHeight; 
+    const scrollPoint = window.scrollY + window.innerHeight;
+    if(scrollPoint >= totalPageHeight) {
+      console.log("at the bottom");
+      if (!showMoreCond) setPage(page + 1);
+    }
   }
   
   /* Set the State for the character List fetched by the API, later it'll be rendered on screen */
@@ -59,7 +59,7 @@ function App() {
       <Header />
       <SearchBar />
       <CardList list={charList} currentPage={page}/>
-      <Pages onShowChars={showMore} currentPage={page}/>  
+      <ShowMore onShowChars={showMore} onShowClick={showMoreCond}/>  
     </AppStyled>
   );
 }
