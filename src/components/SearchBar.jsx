@@ -5,9 +5,9 @@ const SearchBarStyled = styled.input`
   border: 1px solid red;
 `;
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   return (
-    <SearchBarStyled type="search" />
+    <SearchBarStyled type="search" onChange={props.onChangeInput}/>
   );
 }
 

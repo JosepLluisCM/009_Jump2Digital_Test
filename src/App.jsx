@@ -9,6 +9,26 @@ import CardList from './components/CardList';
 import ShowMore from './components/ShowMore';
 
 
+
+
+
+
+async function filter() {
+  const response = await fetch(`https://rickandmortyapi.com/api/character/?name=qua`);
+  const resData = await response.json();
+  console.log(resData);
+}
+filter();
+
+
+
+
+
+
+
+
+
+
 /* Style the App component here, Styled Components object replaces React Component name*/
 const AppStyled = styled.section`
   display: flex;
@@ -34,7 +54,7 @@ function App() {
     const totalPageHeight = document.body.scrollHeight; 
     const scrollPoint = window.scrollY + window.innerHeight;
     if(scrollPoint >= totalPageHeight) {
-      console.log("at the bottom");
+     /*  console.log("at the bottom"); */
       if (!showMoreCond) setPage(page + 1);
     }
   }
@@ -54,10 +74,18 @@ function App() {
     /* Warning here bc charList ins't on the dependencies array, but if I put it, infinite loop created, need to research on that topic, all working atm */
   }, [page]);
     
+
+  /*  */
+  function handleInputChange(event) {
+    
+    /* console.log("tick"); */
+  };
+
+
   return (
     <AppStyled>
       <Header />
-      <SearchBar />
+      <SearchBar onChangeInput={handleInputChange}/>
       <CardList list={charList} currentPage={page}/>
       <ShowMore onShowChars={showMore} onShowClick={showMoreCond}/>  
     </AppStyled>
