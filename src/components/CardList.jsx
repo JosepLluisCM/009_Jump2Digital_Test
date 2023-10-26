@@ -15,7 +15,7 @@ const CardListStyled = styled.div`
 const CardList = (props) => {
   return (
     <CardListStyled >
-      {props.list.map((char) => <Card {...char} key={char.id * props.currentPage}/>)}
+      {props.list.map((char) => <Card {...char} key={char.id}/>)}
     </CardListStyled>
   );
 }

@@ -30,7 +30,7 @@ const CardStyled = styled.div`
 const Card = (props) => { 
 
   return (
-    <CardStyled key={props.id} status={props.status}>
+    <CardStyled status={props.status}>
       <img src={props.image} alt="avatar"/>
       {props.status==="Dead" && <Skull />}
       {props.status==="unknown" && <Interrogation />}

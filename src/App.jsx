@@ -9,26 +9,6 @@ import CardList from './components/CardList';
 import ShowMore from './components/ShowMore';
 
 
-
-
-
-
-async function filter() {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/?name=qua`);
-  const resData = await response.json();
-  console.log(resData);
-}
-filter();
-
-
-
-
-
-
-
-
-
-
 /* Style the App component here, Styled Components object replaces React Component name*/
 const AppStyled = styled.section`
   display: flex;
@@ -46,6 +26,7 @@ function App() {
   /* We Show more characters on the First Click and THEN update the showMore state to hide the button */
   function showMore() {
     setPage(page + 1);
+    setFilteredPage(filteredPage + 1);
     setShowMoreCond(false);
     /* console.log(charList); */
   }
@@ -66,6 +47,10 @@ function App() {
     async function fetchChars() {
       const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
       const resData = await response.json();
+
+      /* Map items to add a unique id to them */
+      /* resData.map((char) => console.log(char)); */
+
       /* Add the newly fetched page to the full array of characters */
       const newArr = charList.concat(resData.results);
       setCharList(newArr);
@@ -75,10 +60,17 @@ function App() {
   }, [page]);
     
 
-  /*  */
+
+  const [filteredPage, setFilteredPage] = useState(1);
+  
   function handleInputChange(event) {
-    
-    /* console.log("tick"); */
+    async function filter() {
+      const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${event.target.value}&page=${filteredPage}`);
+      const filteredData = await response.json();
+      setCharList(filteredData.results);
+    }
+    filter();
+    setShowMoreCond(true);
   };
 
 
@@ -86,7 +78,7 @@ function App() {
     <AppStyled>
       <Header />
       <SearchBar onChangeInput={handleInputChange}/>
-      <CardList list={charList} currentPage={page}/>
+      <CardList list={charList}/>
       <ShowMore onShowChars={showMore} onShowClick={showMoreCond}/>  
     </AppStyled>
   );
