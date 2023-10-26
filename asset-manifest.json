@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/009_Jump2Digital_Test/static/css/main.a82a28b9.css",
-    "main.js": "/009_Jump2Digital_Test/static/js/main.d765b6a4.js",
+    "main.css": "/009_Jump2Digital_Test/static/css/main.e0382066.css",
+    "main.js": "/009_Jump2Digital_Test/static/js/main.f8e2df43.js",
     "static/media/logo.png": "/009_Jump2Digital_Test/static/media/logo.3bbcddb8c31579019495.png",
+    "static/media/interrogation-soid.svg": "/009_Jump2Digital_Test/static/media/interrogation-soid.5da570e2b76c402bff037ac70f5dd7fc.svg",
+    "static/media/skull-crossbones-solid.svg": "/009_Jump2Digital_Test/static/media/skull-crossbones-solid.96136fdc608b026c8e64324a28ffb7ef.svg",
     "index.html": "/009_Jump2Digital_Test/index.html",
-    "main.a82a28b9.css.map": "/009_Jump2Digital_Test/static/css/main.a82a28b9.css.map",
-    "main.d765b6a4.js.map": "/009_Jump2Digital_Test/static/js/main.d765b6a4.js.map"
+    "main.e0382066.css.map": "/009_Jump2Digital_Test/static/css/main.e0382066.css.map",
+    "main.f8e2df43.js.map": "/009_Jump2Digital_Test/static/js/main.f8e2df43.js.map"
   },
   "entrypoints": [
-    "static/css/main.a82a28b9.css",
-    "static/js/main.d765b6a4.js"
+    "static/css/main.e0382066.css",
+    "static/js/main.f8e2df43.js"
   ]
 }
