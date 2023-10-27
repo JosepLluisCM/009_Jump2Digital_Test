@@ -26,7 +26,7 @@ function App() {
   /* We Show more characters on the First Click and THEN update the showMore state to hide the button */
   function showMore() {
     setPage(page + 1);
-    setFilteredPage(filteredPage + 1);
+    
     setShowMoreCond(false);
     /* console.log(charList); */
   }
