@@ -47,8 +47,7 @@ function App() {
       const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
       const resData = await response.json();
       /* Add the newly fetched page to the full array of characters */
-      const newArr = charList.concat(resData.results);
-      setCharList(newArr);
+      setCharList((prevResults) => prevResults.concat(resData.results));
     }
     fetchChars();
     /* Warning here bc charList ins't on the dependencies array, but if I put it, infinite loop created, need to research on that topic, all working atm */
