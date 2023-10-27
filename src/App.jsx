@@ -60,7 +60,7 @@ function App() {
   }, [page]);
     
 
-
+/* FILTER FUNCTIONALITY */
   const [filteredPage, setFilteredPage] = useState(1);
   
   function handleInputChange(event) {
