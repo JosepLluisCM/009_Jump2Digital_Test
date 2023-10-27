@@ -26,7 +26,6 @@ function App() {
   /* We Show more characters on the First Click and THEN update the showMore state to hide the button */
   function showMore() {
     setPage(page + 1);
-    
     setShowMoreCond(false);
     /* console.log(charList); */
   }
@@ -47,10 +46,6 @@ function App() {
     async function fetchChars() {
       const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
       const resData = await response.json();
-
-      /* Map items to add a unique id to them */
-      /* resData.map((char) => console.log(char)); */
-
       /* Add the newly fetched page to the full array of characters */
       const newArr = charList.concat(resData.results);
       setCharList(newArr);
@@ -58,19 +53,9 @@ function App() {
     fetchChars();
     /* Warning here bc charList ins't on the dependencies array, but if I put it, infinite loop created, need to research on that topic, all working atm */
   }, [page]);
-    
-
-
-  const [filteredPage, setFilteredPage] = useState(1);
   
   function handleInputChange(event) {
-    async function filter() {
-      const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${event.target.value}&page=${filteredPage}`);
-      const filteredData = await response.json();
-      setCharList(filteredData.results);
-    }
-    filter();
-    setShowMoreCond(true);
+    console.log(event.target.value);
   };
 
 
