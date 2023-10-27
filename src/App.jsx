@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 
-import { useState, useEffect } from 'react';
+import { useState } from "react";
 
 /* Import Components to Render in the App */
 import Header from './components/Header';
@@ -20,13 +21,16 @@ const AppStyled = styled.section`
 
 
 function App() {
+  const queryClient = useQueryClient()
+
   /* We set the states needed for the app, at the moment the page of Characters that fetches from the API */
   const [page, setPage] = useState(1);
+  const [filterText, setFilterText] = useState('');
   const [showMoreCond, setShowMoreCond] = useState(true);
+
   /* We Show more characters on the First Click and THEN update the showMore state to hide the button */
   function showMore() {
     setPage(page + 1);
-    setFilteredPage(filteredPage + 1);
     setShowMoreCond(false);
     /* console.log(charList); */
   }
@@ -39,47 +43,35 @@ function App() {
       if (!showMoreCond) setPage(page + 1);
     }
   }
-  
-  /* Set the State for the character List fetched by the API, later it'll be rendered on screen */
-  const [charList, setCharList] = useState([]);
-  /* This useEffects runs at the start of the app and on every page state update, and the new informations updates the CardList Component */
-  useEffect(() => {
-    async function fetchChars() {
-      const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
-      const resData = await response.json();
 
-      /* Map items to add a unique id to them */
-      /* resData.map((char) => console.log(char)); */
+  async function fetchChars({
+    pageParam = `https://rickandmortyapi.com/api/character/?page=1`
+  }) {
+    const response = await fetch(pageParam + (filterText !== '' ? `&name=${filterText}` : ''));
+    return response.json();
+  }
 
-      /* Add the newly fetched page to the full array of characters */
-      const newArr = charList.concat(resData.results);
-      setCharList(newArr);
-    }
-    fetchChars();
-    /* Warning here bc charList ins't on the dependencies array, but if I put it, infinite loop created, need to research on that topic, all working atm */
-  }, [page]);
-    
-
-/* FILTER FUNCTIONALITY */
-  const [filteredPage, setFilteredPage] = useState(1);
-  
-  function handleInputChange(event) {
-    async function filter() {
-      const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${event.target.value}&page=${filteredPage}`);
-      const filteredData = await response.json();
-      setCharList(filteredData.results);
-    }
-    filter();
-    setShowMoreCond(true);
-  };
-
+  const { data, hasNextPage, fetchNextPage, refetch } = useInfiniteQuery({
+    queryKey: ["characters", { filterText }],
+    queryFn: fetchChars,
+    getNextPageParam: (lastPage, pages) => lastPage.info?.next,
+  });
 
   return (
     <AppStyled>
       <Header />
-      <SearchBar onChangeInput={handleInputChange}/>
-      <CardList list={charList}/>
-      <ShowMore onShowChars={showMore} onShowClick={showMoreCond}/>  
+      <SearchBar value={filterText} onChangeInput={setFilterText} />
+      {data && (
+        <CardList
+          list={data.pages
+            .map((page) => page.results)
+            .filter((results) => Boolean(results))
+            .flat()}
+        />
+      )}
+      {hasNextPage && (
+        <ShowMore onShowChars={fetchNextPage} onShowClick={showMoreCond} />
+      )}
     </AppStyled>
   );
 }
