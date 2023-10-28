@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/009_Jump2Digital_Test/static/css/main.e0382066.css",
-    "main.js": "/009_Jump2Digital_Test/static/js/main.f8e2df43.js",
+    "main.js": "/009_Jump2Digital_Test/static/js/main.272627fb.js",
     "static/media/logo.png": "/009_Jump2Digital_Test/static/media/logo.3bbcddb8c31579019495.png",
     "static/media/interrogation-soid.svg": "/009_Jump2Digital_Test/static/media/interrogation-soid.5da570e2b76c402bff037ac70f5dd7fc.svg",
     "static/media/skull-crossbones-solid.svg": "/009_Jump2Digital_Test/static/media/skull-crossbones-solid.96136fdc608b026c8e64324a28ffb7ef.svg",
     "index.html": "/009_Jump2Digital_Test/index.html",
     "main.e0382066.css.map": "/009_Jump2Digital_Test/static/css/main.e0382066.css.map",
-    "main.f8e2df43.js.map": "/009_Jump2Digital_Test/static/js/main.f8e2df43.js.map"
+    "main.272627fb.js.map": "/009_Jump2Digital_Test/static/js/main.272627fb.js.map"
   },
   "entrypoints": [
     "static/css/main.e0382066.css",
-    "static/js/main.f8e2df43.js"
+    "static/js/main.272627fb.js"
   ]
 }
