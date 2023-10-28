@@ -22,21 +22,21 @@ const AppStyled = styled.section`
 function App() {
   
 
-  /* We set the states needed for the app, at the moment the page of Characters that fetches from the API */
+  /* We set the states needed for the app, only the text from the input is needed, as tanQuery manages the other States*/
   const [filterText, setFilterText] = useState('');
 
 
-  /* And then we show more characters on scroll bottom only if setShowMore is false, (the button has been clicked once)*/
+  /* We show more characters on scroll bottom*/
   window.onscroll = function() {
     const totalPageHeight = document.body.scrollHeight; 
     const scrollPoint = window.scrollY + window.innerHeight;
     if(scrollPoint >= totalPageHeight) {
      /*  console.log("at the bottom"); */
-      /* if (!showMoreCond) setPage(page + 1); */
       fetchNextPage();
     }
   }
 
+  /* The Function to Fetch the data from API, transform into JSON DATA, and filter if FILTERTEXT is not an empty string */
   async function fetchChars({
     pageParam = `https://rickandmortyapi.com/api/character/?page=1`
   }) {
@@ -44,12 +44,14 @@ function App() {
     return response.json();
   }
 
+  /* This is the Query Function, it manages all states and data, also refetches when needed for more characters */
   const { data, fetchNextPage } = useInfiniteQuery({
     queryKey: ["characters", { filterText }],
     queryFn: fetchChars,
     getNextPageParam: (lastPage, pages) => lastPage.info?.next,
   });
 
+  
   return (
     <AppStyled>
       <Header />
