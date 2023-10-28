@@ -45,24 +45,37 @@ function App() {
   }
 
   /* This is the Query Function, it manages all states and data, also refetches when needed for more characters */
-  const { data, fetchNextPage } = useInfiniteQuery({
+  const { data, fetchNextPage, isLoading, isError } = useInfiniteQuery({
     queryKey: ["characters", { filterText }],
     queryFn: fetchChars,
     getNextPageParam: (lastPage, pages) => lastPage.info?.next,
-  });
+  })
 
-  
+  /* Here we manage the info that is show on the screen depending the State of the fetch, loading, error or good, the list is shown*/
+  let fetchContent = null;
+  if (isLoading) {
+    fetchContent = <p>LOADING</p>;
+  }
+  if (isError) {
+    fetchContent = <p>ERROR</p>
+  }
+  else {
+    fetchContent = data && (
+      <CardList
+        list={data.pages
+          .map((page) => page.results)
+          .filter((results) => Boolean(results))
+          .flat()} />
+    )
+  }
+
+
+
   return (
     <AppStyled>
       <Header />
       <SearchBar value={filterText} onChangeInput={setFilterText} />
-      {data && (
-        <CardList
-          list={data.pages
-            .map((page) => page.results)
-            .filter((results) => Boolean(results))
-            .flat()} />
-      )}
+      {fetchContent}
       
     </AppStyled>
   );

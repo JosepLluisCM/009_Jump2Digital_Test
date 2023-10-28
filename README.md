@@ -10,10 +10,10 @@ ________________________________________________________________________________
 
 ## INFO AND INSTRUCTIONS:   
 
-DOCUMENT WITH INFORMATION ABOUT THE TEST:  
+__DOCUMENT WITH INFORMATION ABOUT THE TEST:__    
 https://jump2digital.site/wp-content/uploads/2023/10/J2D23_Hackathon_Frontend_CAST.pdf?utm_campaign=Jump2Digital_2023&utm_medium=email&_hsmi=76954611&utm_content=76954611&utm_source=hs_automation  
 
-DOCUMENTATION ABOUT THE API TO USE:  
+__DOCUMENTATION ABOUT THE API TO USE:__    
 https://rickandmortyapi.com/documentation/  
 
 
@@ -23,9 +23,9 @@ __FOT BUIDING THIS I'M USING:__
   -HTML, CSS, JS.  
   -Styled Components for styling components and Css.  
   -Git for version control.  
-  -Github for uploading the source code.  
-  -Github Pages for hosting the page online. 
-  -TanStack Query for managing the fetching and state management os the API calls.
+  -Github for uploading the source code.    
+  -Github Pages for hosting the page online.    
+  -TanStack Query for managing the fetching and state management os the API calls.  
 
 
 __DEPENDENCIES INSTALLED IN FOLDER:__  
@@ -51,7 +51,7 @@ ________________________________________________________________________________
 
 ## Development of the Test
 
-__1__  For this test I intent to "test" all my skills learned through this months. Made lots of practice projects but this is the first one that can open jop opportunities for me.
+__1-__  For this test I intent to "test" all my skills learned through this months. Made lots of practice projects but this is the first one that can open jop opportunities for me.
 I start setting the create-React-App and cleaning all unnecessary files.  
 
 __2-__  Then I create and separate the Page in Components, Header, SearchBar(for later filtering), CardList(to dinamically show the Characters) and some buttons (to change pages of characters) and assing very simple styles.   
