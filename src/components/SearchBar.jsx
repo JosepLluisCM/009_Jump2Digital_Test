@@ -7,7 +7,7 @@ const SearchBarStyled = styled.input`
 
 const SearchBar = (props) => {
   return (
-    <SearchBarStyled type="search" onChange={props.onChangeInput}/>
+    <SearchBarStyled type="search" value={props.value} onChange={(event) => props.onChangeInput(event.target.value)}/>
   );
 }
 
