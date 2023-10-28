@@ -24,23 +24,17 @@ function App() {
   const queryClient = useQueryClient()
 
   /* We set the states needed for the app, at the moment the page of Characters that fetches from the API */
-  const [page, setPage] = useState(1);
   const [filterText, setFilterText] = useState('');
-  const [showMoreCond, setShowMoreCond] = useState(true);
 
-  /* We Show more characters on the First Click and THEN update the showMore state to hide the button */
-  function showMore() {
-    setPage(page + 1);
-    setShowMoreCond(false);
-    /* console.log(charList); */
-  }
+
   /* And then we show more characters on scroll bottom only if setShowMore is false, (the button has been clicked once)*/
   window.onscroll = function() {
     const totalPageHeight = document.body.scrollHeight; 
     const scrollPoint = window.scrollY + window.innerHeight;
     if(scrollPoint >= totalPageHeight) {
      /*  console.log("at the bottom"); */
-      if (!showMoreCond) setPage(page + 1);
+      /* if (!showMoreCond) setPage(page + 1); */
+      fetchNextPage();
     }
   }
 
@@ -51,7 +45,7 @@ function App() {
     return response.json();
   }
 
-  const { data, hasNextPage, fetchNextPage, refetch } = useInfiniteQuery({
+  const { data, fetchNextPage } = useInfiniteQuery({
     queryKey: ["characters", { filterText }],
     queryFn: fetchChars,
     getNextPageParam: (lastPage, pages) => lastPage.info?.next,
@@ -69,9 +63,7 @@ function App() {
             .flat()}
         />
       )}
-      {hasNextPage && (
-        <ShowMore onShowChars={fetchNextPage} onShowClick={showMoreCond} />
-      )}
+      
     </AppStyled>
   );
 }
