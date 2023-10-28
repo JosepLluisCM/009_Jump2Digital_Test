@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { useState } from "react";
 
@@ -7,7 +7,6 @@ import { useState } from "react";
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CardList from './components/CardList';
-import ShowMore from './components/ShowMore';
 
 
 /* Style the App component here, Styled Components object replaces React Component name*/
@@ -21,7 +20,7 @@ const AppStyled = styled.section`
 
 
 function App() {
-  const queryClient = useQueryClient()
+  
 
   /* We set the states needed for the app, at the moment the page of Characters that fetches from the API */
   const [filterText, setFilterText] = useState('');
@@ -60,8 +59,7 @@ function App() {
           list={data.pages
             .map((page) => page.results)
             .filter((results) => Boolean(results))
-            .flat()}
-        />
+            .flat()} />
       )}
       
     </AppStyled>
