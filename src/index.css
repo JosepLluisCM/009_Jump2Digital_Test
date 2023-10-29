@@ -6,6 +6,16 @@
 html {
   font-family: sans-serif;
   height: 100%;
-  background-color: #101f36;
-  /* color: white; */
+  color: #e3e3e3;
+}
+
+body {
+  background: rgb(23, 26, 27);
+  background: linear-gradient(
+    190deg,
+    rgba(23, 26, 27, 1) 21%,
+    /* rgba(32, 45, 71, 1) 77% */ rgba(7, 37, 43, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

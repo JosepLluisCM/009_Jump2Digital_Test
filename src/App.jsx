@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import portal from "./assets/ezgif.com-gif-maker.gif";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 import { useState } from "react";
@@ -15,6 +16,25 @@ const AppStyled = styled.section`
   align-items: center;
   flex-direction: column;
   padding: 0 5rem 0 5rem;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 450px) {
+    padding: 0 2rem 0 2rem;
+  }
+`;
+const PortalStyled = styled.img`
+  position: fixed;
+  scale: 200%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25%, -25%);
+  z-index: -1;
+  filter: blur(4px);
+  @media (max-width: 450px) {
+    scale: 100%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 function App() {
@@ -65,6 +85,7 @@ function App() {
 
   return (
     <AppStyled>
+      <PortalStyled src={portal} />
       <Header />
       <SearchBar value={filterText} onChangeInput={setFilterText} />
       {isLoading && <p>LOADING</p>}
