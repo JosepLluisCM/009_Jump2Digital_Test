@@ -7,7 +7,7 @@ const CardStyled = styled.div`
   background-color: #0e4c59;
   border-radius: 1rem;
   width: 200px;
-  height: 325px;
+  height: 335px;
   text-align: center;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
   padding: 1rem;
