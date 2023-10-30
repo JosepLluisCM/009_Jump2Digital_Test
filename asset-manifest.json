@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/009_Jump2Digital_Test/static/css/main.39502c22.css",
-    "main.js": "/009_Jump2Digital_Test/static/js/main.f34b7887.js",
+    "main.js": "/009_Jump2Digital_Test/static/js/main.8d317729.js",
     "static/media/logo.png": "/009_Jump2Digital_Test/static/media/logo.3bbcddb8c31579019495.png",
     "static/media/ezgif.com-gif-maker.gif": "/009_Jump2Digital_Test/static/media/ezgif.com-gif-maker.8f8b478d5d97d8849023.gif",
     "index.html": "/009_Jump2Digital_Test/index.html",
     "main.39502c22.css.map": "/009_Jump2Digital_Test/static/css/main.39502c22.css.map",
-    "main.f34b7887.js.map": "/009_Jump2Digital_Test/static/js/main.f34b7887.js.map"
+    "main.8d317729.js.map": "/009_Jump2Digital_Test/static/js/main.8d317729.js.map"
   },
   "entrypoints": [
     "static/css/main.39502c22.css",
-    "static/js/main.f34b7887.js"
+    "static/js/main.8d317729.js"
   ]
 }
