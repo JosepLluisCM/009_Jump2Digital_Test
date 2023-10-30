@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import portal from "./assets/ezgif.com-gif-maker.gif";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { AppStyled, PortalStyled, WrapperStyled } from "./App.styled";
+import portal from "./assets/ezgif.com-gif-maker.gif";
 
 import { useState } from "react";
 
@@ -8,44 +8,6 @@ import { useState } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import CardList from "./components/CardList";
-
-/* Style the App component here, Styled Components object replaces React Component name*/
-const AppStyled = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 5rem 0 5rem;
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  @media (max-width: 450px) {
-    padding: 0 2rem 0 2rem;
-  }
-`;
-const PortalStyled = styled.img`
-  position: fixed;
-  scale: 200%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-25%, -25%);
-  z-index: -1;
-  filter: blur(4px);
-  @media (max-width: 450px) {
-    scale: 100%;
-    transform: translate(-50%, -50%);
-  }
-`;
-
-const WrapperStyled = styled.div`
-  background-color: #0f4c59;
-  font-size: 25px;
-  color: #e3e3e3;
-  border-radius: 50px;
-  padding: 1.5rem 2.5rem;
-  margin: 5rem;
-  box-shadow: 2px 5px 5px 5px rgba(0, 0, 0, 0.4);
-`;
 
 function App() {
   /* We set the states needed for the app, only the text from the input is needed, as tanQuery manages the other States*/
@@ -56,7 +18,6 @@ function App() {
     const totalPageHeight = document.body.scrollHeight;
     const scrollPoint = window.scrollY + window.innerHeight;
     if (scrollPoint >= totalPageHeight) {
-      /*  console.log("at the bottom"); */
       fetchNextPage();
     }
   };
