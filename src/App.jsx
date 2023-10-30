@@ -37,6 +37,16 @@ const PortalStyled = styled.img`
   }
 `;
 
+const WrapperStyled = styled.div`
+  background-color: #0f4c59;
+  font-size: 25px;
+  color: #e3e3e3;
+  border-radius: 50px;
+  padding: 1.5rem 2.5rem;
+  margin: 5rem;
+  box-shadow: 2px 5px 5px 5px rgba(0, 0, 0, 0.4);
+`;
+
 function App() {
   /* We set the states needed for the app, only the text from the input is needed, as tanQuery manages the other States*/
   const [filterText, setFilterText] = useState("");
@@ -71,7 +81,11 @@ function App() {
   /* Here we manage the info that is show on the screen depending the State of the fetch, loading, error or good, the list is shown*/
   let fetchContent = null;
   if (data && data.pages[0].error) {
-    fetchContent = <p>No Characters with that name</p>;
+    fetchContent = (
+      <WrapperStyled>
+        <p>No Characters with that name.</p>
+      </WrapperStyled>
+    );
   } else {
     fetchContent = data && (
       <CardList
@@ -88,8 +102,16 @@ function App() {
       <PortalStyled src={portal} />
       <Header />
       <SearchBar value={filterText} onChangeInput={setFilterText} />
-      {isLoading && <p>LOADING</p>}
-      {isError && <p>ERROR</p>}
+      {isLoading && (
+        <WrapperStyled>
+          <p>LOADING...</p>
+        </WrapperStyled>
+      )}
+      {isError && (
+        <WrapperStyled>
+          <p>ERROR</p>
+        </WrapperStyled>
+      )}
       {fetchContent}
     </AppStyled>
   );
